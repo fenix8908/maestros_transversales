@@ -1,0 +1,11 @@
+unsafe-perm=true
+package-lock=false
+registry=https://personalsoftsas.pkgs.visualstudio.com/Personalsoft_ARQ_Transversales/_packaging/packages/npm/registry/
+always-auth=true
+
+//personalsoftsas.pkgs.visualstudio.com/Personalsoft_ARQ_Transversales/_packaging/packages/npm/registry/:username=personalsoftsas=
+//personalsoftsas.pkgs.visualstudio.com/Personalsoft_ARQ_Transversales/_packaging/packages/npm/registry/:_password=${NPM_TOKEN}
+//personalsoftsas.pkgs.visualstudio.com/Personalsoft_ARQ_Transversales/_packaging/packages/npm/registry/:email=personalsoftsas@personalsoft.com.co
+//personalsoftsas.pkgs.visualstudio.com/Personalsoft_ARQ_Transversales/_packaging/packages/npm/:username=personalsoftsas=
+//personalsoftsas.pkgs.visualstudio.com/Personalsoft_ARQ_Transversales/_packaging/packages/npm/:_password=${NPM_TOKEN}
+//personalsoftsas.pkgs.visualstudio.com/Personalsoft_ARQ_Transversales/_packaging/packages/npm/:email=personalsoftsas@personalsoft.com.co
