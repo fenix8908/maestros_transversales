@@ -1,4 +1,4 @@
-<div class="container pt-5  wow fadeInUp" data-wow-delay="1s">
+<div class="container-fluid pt-5  wow fadeInUp" data-wow-delay="1s">
  <!-- Image and text -->
 <mdb-navbar SideClass="navbar navbar-dark indigo ">
     <mdb-navbar-brand>
@@ -9,63 +9,57 @@
     </mdb-navbar-brand>
 </mdb-navbar>
   <br>
-  <div class="card ">
-    <div class="container">
-      <form (ngSubmit)="createTypeList()" #formTypeList="ngForm" novalidate>
-        <div class="row" style="margin-top: 20px;">
-          <div class="col-4">
-            <div class="form-group">
-              <label for="id">Id</label>
-              <input id="float-input" type="text" name="id" readonly [(ngModel)]="masterTypeListSelected.id" disabled
-                class="form-control">
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input id="float-input" type="text" name="name" [(ngModel)]="masterTypeListSelected.name" required
-                #name="ngModel" nameValidation class="form-control">
-              <div *ngIf="name.invalid && (name.dirty || name.touched)">
-                <p class="requiredRed" *ngIf="name.errors.required">El nombre es requerido*</p>
+  <mdb-card>
+      <div class="container">
+          <form (ngSubmit)="createTypeList()" #formTypeList="ngForm" novalidate>
+            <div class="row" style="margin-top: 20px;">
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="id">Id</label>
+                  <input id="float-input" type="text" name="id" readonly [(ngModel)]="masterTypeListSelected.id" disabled
+                    class="form-control">
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="md-form">
-
-              <input id="form-1" type="text" name="description" mdbInput
-                [(ngModel)]="masterTypeListSelected.description" required #description="ngModel" class="form-control">
-              <label for="float-input">Descripción</label>
-              <div *ngIf="description.invalid && (description.dirty || description.touched)">
-                <div *ngIf="description.errors.required">
-                  <p class="requiredRed">La descripción es requerida*</p>
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="nombre">Nombre</label>
+                  <input id="float-input" type="text" name="name" [(ngModel)]="masterTypeListSelected.name" required
+                    #name="ngModel" nameValidation class="form-control">
+                  <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <p class="requiredRed" *ngIf="name.errors.required">El nombre es requerido*</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="md-form">
+    
+                  <input id="form-1" type="text" name="description" mdbInput
+                    [(ngModel)]="masterTypeListSelected.description" required #description="ngModel" class="form-control">
+                  <label for="float-input">Descripción</label>
+                  <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                    <div *ngIf="description.errors.required">
+                      <p class="requiredRed">La descripción es requerida*</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row pl-2 pb-3">
+                <div class="col-12">
+                  <button 
+                  label="Guardar" 
+                  [disabled]="!formTypeList.valid" 
+                  class="btn blue-gradient mr-3 ">Guardar</button>
+                  
+                  <button  type="button" 
+                  label="Limpiar" 
+                  class="btn aqua-gradient " 
+                  (click)="reset()">Limpiar</button>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row pl-2">
-            <div class="col-12">
-              <button 
-              label="Guardar" 
-              [disabled]="!formTypeList.valid" 
-              class="btn blue-gradient mr-3  ">Guardar</button>
-              
-              <button  type="button" 
-              label="Limpiar" 
-              class="btn aqua-gradient " 
-              (click)="reset()">Limpiar</button>
-            </div>
-          </div>
+          </form>
         </div>
-        <div class="row pl-3">
-          <div class="md-form ">
-            <input mdbInput type="text" id="form1" class="form-control ">
-            <label for="form1" class="">Ejemplo</label>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+  </mdb-card>
   <div class="container-fluid">
     <div class="row" style="margin-top: 20px;">
       <div class="col">

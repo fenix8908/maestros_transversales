@@ -1,3 +1,5 @@
 {
-    "URL_BASE_API_MASTER_TYPELIST_W":"http://172.19.5.218:9301/api/TypesList" 
+    "URL_BASE_API_MASTER_TYPELIST_W":"http://172.19.5.218:9301/api/TypesList",
+    "URL_BASE_API_MASTER_LIST_W":"http://172.19.5.218:9301/api/Lists/"
+
 }

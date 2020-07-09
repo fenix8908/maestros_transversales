@@ -6,7 +6,7 @@ import {URL_BASE_API_MASTER_TYPELIST_W} from '../../../constants';
 
 
 @Injectable()
-export class TypeListServiceService {
+export class TypeListService{
     
     constructor(private http: HttpClient) { }
 

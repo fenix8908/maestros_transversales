@@ -2,19 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { NavbarModule, WavesModule, ButtonsModule } from 'angular-bootstrap-md'
+import { FormsModule } from '@angular/forms';
+import { ListService } from '../../services/list.service';
+import { TypeListService } from '../../services/typeListService.service';
+import {MultiSelectModule} from 'primeng/multiselect';
+import { SelectDropDownModule } from 'ngx-select-dropdown'
 
 @NgModule({
   imports: [
+    SelectDropDownModule,
+    MultiSelectModule,
+    FormsModule,
     CommonModule,
     MDBBootstrapModule.forRoot(),
-    NavbarModule,
-    WavesModule,
-    ButtonsModule
+ 
   ],
   exports:[
     ListComponent
   ],
-  declarations: [ListComponent]
+  declarations: [
+    ListComponent
+  ],
+  providers:[
+    ListService,
+    TypeListService
+  ]
 })
 export class ListModule { }

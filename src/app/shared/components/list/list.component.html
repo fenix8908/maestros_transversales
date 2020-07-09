@@ -1,13 +1,132 @@
 <div class="container">
-    <mdb-card>
+    <mdb-card >
         <mdb-card-body>
             <mdb-card-title>
-                <h4></h4>
+                <h4 class="text-center">Creacion de listas</h4>
             </mdb-card-title>
-            <mdb-card-text>
-                ome quick example text to build on the card title and make up the bulk of the card's
-                content.
-            </mdb-card-text>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Tipo de lista</label>
+                        <select class="browser-default custom-select">
+                            <option selected>Seleccione</option>
+                            <option *ngFor="let item of masterTypeList">{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Tipos de lista Padre</label>
+                        <select class="browser-default custom-select" (change)="changetFhather($event.target.value)">
+                            <option selected>Seleccione</option>
+                            <option *ngFor="let item of masterTypeList" [value]='item.id'>{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Ítem padre</label>
+                        <select class="browser-default custom-select">
+                            <option selected>Seleccione</option>
+                            <option *ngFor="let item of parentList">{{item.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Nombre</label>
+                        <input type="text" name="" id="" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Aplicación</label>
+                        <input type="text" name="" id="" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Código</label>
+                        <input type="text" name="" id="" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Descripción</label>
+                    <textarea name="" id="" rows="5" class="form-control" placeholder="">
+
+                    </textarea>
+                </div>
+            </div>
         </mdb-card-body>
     </mdb-card>
+    <br>
+    <!-- Editable table -->
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Listas</h3>
+        <div class="card-body">
+            <div id="table" class="table-editable">
+                <span class="table-add float-right mb-3 mr-2">
+                    <a class="text-success" (click)="add()">
+                        <mdb-icon fas icon="plus" size="2x"></mdb-icon>
+                    </a>
+                </span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <tr>
+                        <th class="text-center">Person Name</th>
+                        <th class="text-center">Age</th>
+                        <th class="text-center">Company Name</th>
+                        <th class="text-center">Country</th>
+                        <th class="text-center">City</th>
+                        <th class="text-center">Sort</th>
+                        <th class="text-center">Remove</th>
+                    </tr>
+                    <tr *ngFor="let person of personList; let id = index">
+                        <td>
+                            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)"
+                                contenteditable="true">{{person.name}}</span>
+                        </td>
+                        <td>
+                            <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)"
+                                (blur)="updateList(id, 'age', $event)">{{person.age}}</span>
+                        </td>
+                        <td>
+                            <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)"
+                                (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</span>
+                        </td>
+                        <td>
+                            <span contenteditable="true" (keyup)="changeValue(id, 'country', $event)"
+                                (blur)="updateList(id, 'country', $event)">{{person.country}}</span>
+                        </td>
+                        <td>
+                            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)"
+                                (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+                        </td>
+                        <td>
+                            <span class="table-up">
+                                <a class="indigo-text">
+                                    <mdb-icon fas icon="long-arrow-alt-up"></mdb-icon>
+                                </a>
+                            </span>
+                            <span class="table-down">
+                                <a class="indigo-text">
+                                    <mdb-icon fas icon="long-arrow-alt-down"></mdb-icon>
+                                </a>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="table-remove">
+                                <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+                                    (click)="remove(id)">Remove</button>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Editable table -->
 </div>

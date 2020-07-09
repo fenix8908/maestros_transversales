@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TypeListServiceService } from '../../services/typeListService.service';
+import { TypeListService } from '../../services/typeListService.service';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { ConfirmationService } from 'primeng/components/common/confirmationservice';
 import { MasterTypeList } from '../../models/master.model';
@@ -15,7 +15,7 @@ import { MasterTypeList } from '../../models/master.model';
 })
 export class TypeListComponent implements OnInit {
 
-  constructor(private typeListService: TypeListServiceService,
+  constructor(private typeListService: TypeListService,
     private messageService: MessageService,
     private confirmation: ConfirmationService) {
   }

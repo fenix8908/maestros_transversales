@@ -49,6 +49,7 @@
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "ngx-pagination": "^5.0.0",
+    "ngx-select-dropdown": "^1.4.3",
     "ngx-spinner": "^9.0.2",
     "primeflex": "^1.0.0-rc.1",
     "primeicons": "^1.0.0",

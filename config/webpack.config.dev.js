@@ -50,7 +50,8 @@ module.exports = webpackMerge(commonConfig, {
     plugins: [
         new webpack.DefinePlugin({
             ENV: JSON.stringify('DEV'),
-            URL_BASE_API_MASTER_TYPELIST_W: JSON.stringify(constants.URL_BASE_API_MASTER_TYPELIST_W)     
+            URL_BASE_API_MASTER_TYPELIST_W: JSON.stringify(constants.URL_BASE_API_MASTER_TYPELIST_W),
+            URL_BASE_API_MASTER_LIST_W:JSON.stringify(constants.URL_BASE_API_MASTER_LIST_W)   
         })
     ]
 });

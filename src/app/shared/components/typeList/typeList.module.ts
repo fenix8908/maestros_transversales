@@ -17,7 +17,7 @@ import { CardModule } from 'primeng/card';
 
 //Extras
 import { NgxPaginationModule } from 'ngx-pagination';
-import { TypeListServiceService } from '../../services/typeListService.service';
+import { TypeListService } from '../../services/typeListService.service';
 import { FilterPipe } from './pipes/filter.pipe';
 import { NameValidationDirective } from './validations/name-validation.directive';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -53,7 +53,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     NameValidationDirective
   ],
   providers:[
-    TypeListServiceService
+    TypeListService
   ]
 })
 export class TypeListModule { }
