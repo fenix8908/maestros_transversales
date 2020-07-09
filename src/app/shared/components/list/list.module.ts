@@ -7,9 +7,13 @@ import { ListService } from '../../services/list.service';
 import { TypeListService } from '../../services/typeListService.service';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { SelectDropDownModule } from 'ngx-select-dropdown'
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   imports: [
+    MessagesModule,
+    ToastModule,
     SelectDropDownModule,
     MultiSelectModule,
     FormsModule,

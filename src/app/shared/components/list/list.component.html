@@ -1,66 +1,79 @@
 <div class="container">
-    <mdb-card >
+    <mdb-card>
         <mdb-card-body>
             <mdb-card-title>
                 <h4 class="text-center">Creacion de listas</h4>
             </mdb-card-title>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="">Tipo de lista</label>
-                        <select class="browser-default custom-select">
-                            <option selected>Seleccione</option>
-                            <option *ngFor="let item of masterTypeList">{{item.name}}</option>
-                        </select>
+            <br>
+            <form (ngSubmit)="saveList()" #formlist="ngForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Tipo de lista</label>
+                            <select class="browser-default custom-select" name="idTypeList"
+                                [(ngModel)]="listInitial.idTypeList" >
+                                <option selected>Seleccione</option>
+                                <option *ngFor="let item of masterTypeList" [value]="item.id">{{item.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Tipos de lista Padre</label>
+                            <select class="browser-default custom-select" (change)="changeFhather($event.target.value)"
+                                name="idTypeList">
+                                <option selected>Seleccione</option>
+                                <option *ngFor="let item of masterTypeList" [value]='item.id'>{{item.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Ítem padre</label>
+                            <select class="browser-default custom-select" name="parent"
+                                [(ngModel)]="listInitial.parent">
+                                <option selected>Seleccione</option>
+                                <option *ngFor="let item of parentList" [value]="item">{{item.name}}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="">Tipos de lista Padre</label>
-                        <select class="browser-default custom-select" (change)="changetFhather($event.target.value)">
-                            <option selected>Seleccione</option>
-                            <option *ngFor="let item of masterTypeList" [value]='item.id'>{{item.name}}</option>
-                        </select>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Nombre</label>
+                            <input type="text" name="name" id="" class="form-control" [(ngModel)]="listInitial.name">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Aplicación</label>
+                            <input type="text" name="nameApplication" id="" class="form-control"
+                                [(ngModel)]="listInitial.nameApplication">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Código</label>
+                            <input type="text" name="code" id="" class="form-control" [(ngModel)]="listInitial.code">
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="">Ítem padre</label>
-                        <select class="browser-default custom-select">
-                            <option selected>Seleccione</option>
-                            <option *ngFor="let item of parentList">{{item.name}}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="">Nombre</label>
-                        <input type="text" name="" id="" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="">Aplicación</label>
-                        <input type="text" name="" id="" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label for="">Código</label>
-                        <input type="text" name="" id="" class="form-control">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label for="">Descripción</label>
-                    <textarea name="" id="" rows="5" class="form-control" placeholder="">
-
+                <hr>
+                <div class="row">
+                    <div class="col">
+                        <label for="">Descripción</label>
+                        <textarea name="description" id="" rows="5" class="form-control" placeholder=""
+                            [(ngModel)]="listInitial.description">
                     </textarea>
+                    </div>
                 </div>
-            </div>
+                <div class="row justify-content-center pt-3">
+                    <div class="col-md-8">
+                        <button mdbBtn type="submit" color="blue" gradient ="blue" block="true" mdbWavesEffect>Block Button</button>
+                    </div>
+                </div>
+            </form>
         </mdb-card-body>
     </mdb-card>
     <br>

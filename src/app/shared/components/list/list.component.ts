@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { MasterTypeList, MasterList } from '../../models/master.model';
+import { MessageService } from 'primeng/components/common/messageservice';
+import { MasterTypeList, MasterList, MasterListParent } from '../../models/master.model';
 import { TypeListService } from '../../services/typeListService.service';
 import { ListService } from '../../services/list.service';
 
@@ -10,26 +10,51 @@ import { ListService } from '../../services/list.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  providers:[
+    MessageService
+  ]
 })
 
 
 export class ListComponent implements OnInit {
 
   public masterTypeList: MasterTypeList[] = [];
-  public parentList: MasterList[] = [];
-
-  editField: string;
+  public parentList: MasterListParent[] = [];
+  public editField: string;
+  
+  public listInitial : MasterList = {
+    idTypeList:'',
+    parent: new MasterListParent(),
+    nameApplication:'',
+    code:'',
+    name:'',
+    isActive:true,
+    description:''
+  }
 
 
   constructor(
     private typeListService: TypeListService,
-    private listService: ListService) 
+    private listService: ListService,
+    private messageService: MessageService
+    ) 
     {}
 
-  changetFhather(idTypeList: string) {
+  changeFhather(idTypeList: string) {
     this.listService.getParentList(idTypeList).
     subscribe(result => {this.parentList = result; console.log(this.parentList)})
+  }
+
+  saveList(){
+    console.log(this.listInitial);
+    this.listService.createList(this.listInitial).
+    subscribe( data => {
+      this.messageService.add({ severity: 'success', summary: 'Bien hecho!!', detail: 'El tipo de lista ha sido creado' }),
+      error => {
+        this.messageService.add({ severity: 'error', summary: 'Uppss!!', detail: 'No se creo el tipo de lista' })
+      }
+    })
   }
 
   ngOnInit() {

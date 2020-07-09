@@ -8,10 +8,20 @@ export class MasterTypeList{
 
 }
 
-export interface MasterList{
+export class MasterList{
+    idTypeList:string;
+    parent:MasterListParent;
+    nameApplication:string;
+    code:string;
+    name:string;
+    isActive:boolean;
+    description:string;
+}
+
+export class MasterListParent{
     id:string;
     idTypeList:string;
-    parent:MasterList;
+    parent:MasterListParent;
     nameApplication:string;
     code:string;
     name:string;
